@@ -61,13 +61,13 @@ Public Class Main
         Chart1.ChartAreas(0).AxisX.IsLogarithmic = True
         Chart1.ChartAreas(0).AxisY.IsLogarithmic = True
         For j = 0 To Nmax - 1
-            writer1.WriteLine(x(j))
+            writer1.WriteLine(j * TextBox4.Text & Chr(9) & x(j))
             Chart2.Series("tray").Points.AddXY(j * TextBox4.Text, x(j))
         Next
         writer1.Close()
         Dim writer2 As New StreamWriter(StartPath & "\MSD.dat")
         For l = 1 To maxMSD - 1
-            writer2.WriteLine(l * TextBox4.Text & Chr(9) & MSD(l))
+            writer2.WriteLine(l * TextBox4.Text * TextBox4.Text & Chr(9) & MSD(l))
             Chart1.Series("MSD").Points.AddXY(l * TextBox4.Text, MSD(l))
         Next
         writer2.Close()
