@@ -1,6 +1,6 @@
 # Random-Walker-MSD
 This is a repository for a Random Walker simulation for free and confined particles and the corresponding calculation of Mean Squared Displacement
 
-If you are using the code for published research, please cite the manuscript https://sites.google.com/site/esarmientoresearch/home
+If you are using the code for published research, please cite the manuscript TBC
 
 Random-Walker-MSD was programmed in .NET Framework 4.7.2 using Microsoft Visual Studio 2022. To compile, download Visual Studio here https://visualstudio.microsoft.com/es/vs/community/ and Build the solution. Depending your Visual Studio configuration your will find the .exe file either on bin/Debug or bin/Release folder. Run the application, fill the textbox with the number of steps of the walker, the step size dx (and thus the step between two consecutive times will be randomly selected within the interval -dx and dx), the max lag time for the calculation of the mean squared displacement, and the time between two consecutive steps. You can also select if the simulation is for a free or confined particle, and for the latter the size of the confining cage must be selected. After clicking Calculate, the trayectory and the MSD should be displayed on the main window and two additional files will be created on the same folder as the .exe file: tray.dat where the trayectory (time and position of the particle) is saved, and MSD.dat, where the MSD (lag time and MSD) is saved.
