@@ -16,16 +16,20 @@ Public Class Main
         Chart1.Series("MSD").ChartType = SeriesChartType.Point
         Chart1.ChartAreas(0).AxisX.IsLogarithmic = False
         Chart1.ChartAreas(0).AxisY.IsLogarithmic = False
-        Button1.Enabled = False
-        Button1.Text = "In Progress"
-        BackgroundWorker1.WorkerSupportsCancellation = True
-        BackgroundWorker1.WorkerReportsProgress = True
-        BackgroundWorker1.RunWorkerAsync()
-        TextBox1.Enabled = False
-        TextBox2.Enabled = False
-        TextBox3.Enabled = False
-        TextBox4.Enabled = False
-        TextBox5.Enabled = False
+        If TextBox1.Text > TextBox3.Text Then
+            Button1.Enabled = False
+            Button1.Text = "In Progress"
+            BackgroundWorker1.WorkerSupportsCancellation = True
+            BackgroundWorker1.WorkerReportsProgress = True
+            BackgroundWorker1.RunWorkerAsync()
+            TextBox1.Enabled = False
+            TextBox2.Enabled = False
+            TextBox3.Enabled = False
+            TextBox4.Enabled = False
+            TextBox5.Enabled = False
+        Else
+            MessageBox.Show("Max lag time bigger than displacement vector. Increase number of steps", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
     End Sub
     Private Sub BackgroundWorker1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
         Dim dx As Single = TextBox2.Text
